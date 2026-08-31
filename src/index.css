@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-primary-green: #8F1D2C;
+  --color-primary-green-hover: #701522;
+  --color-dark-green: #701522;
+  --color-soft-green: #F3D9D7;
+  --color-light-green: #F7EDE3;
+  --color-warm-bg: #FFF8F0;
+  --color-bg-white: #FFFFFF;
+  --color-text-main: #382822;
+  --color-text-sub: #6F5B53;
+  --color-border: #E8D8CE;
+  --color-accent-subtle: #F3D9D7;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-gujarati: 'Noto Sans Gujarati', 'Gujarati Sangam MN', 'Gujarati MT', 'Shruti', 'Nirmala UI', sans-serif;
+
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-white);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-bg-white);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: rgba(40, 122, 74, 0.15);
+  color: var(--color-dark-green);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary-green);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-gujarati {
+  font-family: var(--font-gujarati);
+}
+
+/* Re-map existing utility classes to the premium cherry/cream palette. */
+[class*="bg-[#287A4A]"] { background-color: #8F1D2C !important; }
+[class*="bg-[#17613A]"], [class*="bg-[#1E633B]"] { background-color: #701522 !important; }
+[class*="bg-[#EAF4EC]"], [class*="bg-[#D6E8D8]"] { background-color: #F3D9D7 !important; }
+[class*="bg-[#F7F8F4]"], [class*="bg-[#F4F8F4]"] { background-color: #FFF8F0 !important; }
+[class*="text-[#287A4A]"] { color: #8F1D2C !important; }
+[class*="text-[#17613A]"], [class*="text-[#1E633B]"] { color: #701522 !important; }
+[class*="text-[#262626]"] { color: #382822 !important; }
+[class*="text-[#666666]"] { color: #6F5B53 !important; }
+[class*="text-[#EAF4EC]"], [class*="text-[#D6E8D8]"] { color: #FFF8F0 !important; }
+[class*="border-[#287A4A]"] { border-color: #8F1D2C !important; }
+[class*="border-[#1E633B]"], [class*="border-[#17613A]"] { border-color: #701522 !important; }
+[class*="border-[#E3E8E3]"], [class*="border-[#D6E8D8]"] { border-color: #E8D8CE !important; }
+[class*="bg-[#287A4A]"] { color: #FFFFFF !important; }
+[class*="bg-[#287A4A]"] svg, [class*="bg-[#17613A]"] svg, [class*="bg-[#1E633B]"] svg { color: #FFFFFF !important; stroke: #FFFFFF !important; }
+[class*="hover:bg-[#17613A]"]:hover { color: #FFFFFF !important; }
+[class*="hover:bg-[#17613A]"]:hover svg { color: #FFFFFF !important; stroke: #FFFFFF !important; }
+[class*="max-w-7xl"][class*="px-4"] { max-width: 1280px !important; padding-inline: 20px !important; }
+@media (min-width: 640px) { [class*="max-w-7xl"][class*="px-4"] { padding-inline: 24px !important; } }
+@media (min-width: 1024px) { [class*="max-w-7xl"][class*="px-4"] { padding-inline: 32px !important; } }
