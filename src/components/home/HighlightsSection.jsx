@@ -3,27 +3,27 @@ import { Sparkles, Heart, UtensilsCrossed, MapPin, Users, ShieldCheck } from 'lu
 export default function HighlightsSection() {
   const highlights = [
     {
-      icon: <ShieldCheck size={20} className="text-[#287A4A]" />,
+      icon: <ShieldCheck size={20} className="text-[#287A4A]" aria-hidden="true" />,
       title: '100% Pure Vegetarian',
       desc: 'Authentic home-style food',
     },
     {
-      icon: <Heart size={20} className="text-[#287A4A]" />,
+      icon: <Heart size={20} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Family Kitchen',
       desc: 'Freshly prepared with care',
     },
     {
-      icon: <UtensilsCrossed size={20} className="text-[#287A4A]" />,
+      icon: <UtensilsCrossed size={20} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Authentic Flavours',
       desc: 'Gujarati & Punjabi cuisine',
     },
     {
-      icon: <MapPin size={20} className="text-[#287A4A]" />,
+      icon: <MapPin size={20} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Serving Surat',
       desc: 'Local catering service',
     },
     {
-      icon: <Users size={20} className="text-[#287A4A]" />,
+      icon: <Users size={20} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Up to 300 Guests',
       desc: 'Intimate & large gatherings',
     },
@@ -32,6 +32,7 @@ export default function HighlightsSection() {
   return (
     <section className="py-12 bg-[#F7F8F4] border-y border-[#E3E8E3]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 className="sr-only">Our Highlights</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
           {highlights.map((item, idx) => (
             <div

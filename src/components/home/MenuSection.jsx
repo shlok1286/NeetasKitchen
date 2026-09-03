@@ -51,7 +51,7 @@ export default function MenuSection() {
         {/* Section Header */}
         <div className="max-w-3xl text-left space-y-3 mb-12">
           <div className="inline-flex items-center gap-2 rounded-full bg-[#EAF4EC] px-3.5 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#287A4A]">
-            <Sparkles size={13} />
+            <Sparkles size={13} aria-hidden="true" />
             <span>Interactive Menu Selection</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#262626]">
@@ -65,7 +65,7 @@ export default function MenuSection() {
         {/* Shaak Limit Warning Alert */}
         {shaakLimitAlert && (
           <div className="mb-8 flex items-center gap-3 rounded-2xl border-2 border-[#287A4A] bg-[#EAF4EC] p-4 text-sm font-bold text-[#17613A] animate-bounce">
-            <AlertCircle size={20} className="text-[#287A4A] shrink-0" />
+            <AlertCircle size={20} className="text-[#287A4A] shrink-0" aria-hidden="true" />
             <span>Maximum 2 Shaak can be selected.</span>
           </div>
         )}
@@ -95,6 +95,7 @@ export default function MenuSection() {
                     <button
                       key={item.id}
                       type="button"
+                      aria-pressed={isSelected}
                       onClick={() => toggleStarter(item.id)}
                       className={`flex flex-col justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
                         isSelected
@@ -118,7 +119,7 @@ export default function MenuSection() {
                               : 'border-[#E3E8E3] bg-white text-transparent'
                           }`}
                         >
-                          <Check size={13} strokeWidth={3} />
+                          <Check size={13} strokeWidth={3} aria-hidden="true" />
                         </div>
                       </div>
                     </button>
@@ -153,6 +154,7 @@ export default function MenuSection() {
                     >
                       <button
                         type="button"
+                        aria-pressed={isSelected}
                         onClick={() => toggleCompleteDish(item.id)}
                         className="flex items-start justify-between gap-2 w-full select-none cursor-pointer"
                       >
@@ -171,7 +173,7 @@ export default function MenuSection() {
                               : 'border-[#E3E8E3] bg-white text-transparent'
                           }`}
                         >
-                          <Check size={13} strokeWidth={3} />
+                          <Check size={13} strokeWidth={3} aria-hidden="true" />
                         </div>
                       </button>
 
@@ -188,7 +190,7 @@ export default function MenuSection() {
                             <div>
                               <span className="font-bold text-[#262626]">Add Amul Butter</span>
                               <span className="font-gujarati text-[#287A4A] ml-1 font-bold">(અમૂલ બટર)</span>
-                              <p className="text-[11px] text-[#666666]">Amul Butter is available on request and may have an additional charge.</p>
+                              <p className="text-xs text-[#666666]">Amul Butter is available on request and may have an additional charge.</p>
                             </div>
                           </label>
                         </div>
@@ -231,6 +233,8 @@ export default function MenuSection() {
                     >
                       <button
                         type="button"
+                        aria-pressed={isSelected}
+                        disabled={isDisabled}
                         onClick={() => toggleShaak(item.id)}
                         className="flex items-start justify-between gap-2 w-full select-none cursor-pointer"
                       >
@@ -249,7 +253,7 @@ export default function MenuSection() {
                               : 'border-[#E3E8E3] bg-white text-transparent'
                           }`}
                         >
-                          <Check size={13} strokeWidth={3} />
+                          <Check size={13} strokeWidth={3} aria-hidden="true" />
                         </div>
                       </button>
 
@@ -266,7 +270,7 @@ export default function MenuSection() {
                             <div>
                               <span className="font-bold text-[#262626]">Add Amul Butter</span>
                               <span className="font-gujarati text-[#287A4A] ml-1 font-bold">(અમૂલ બટર)</span>
-                              <p className="text-[11px] text-[#666666]">Amul Butter is available on request and may have an additional charge.</p>
+                              <p className="text-xs text-[#666666]">Amul Butter is available on request and may have an additional charge.</p>
                             </div>
                           </label>
                         </div>
@@ -296,6 +300,7 @@ export default function MenuSection() {
                     <button
                       key={item.id}
                       type="button"
+                      aria-pressed={isSelected}
                       onClick={() => selectBread(item.id)}
                       className={`flex items-start justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
                         isSelected
@@ -318,7 +323,7 @@ export default function MenuSection() {
                             : 'border-[#E3E8E3] bg-white text-transparent'
                         }`}
                       >
-                        <Check size={13} strokeWidth={3} />
+                        <Check size={13} strokeWidth={3} aria-hidden="true" />
                       </div>
                     </button>
                   )
@@ -345,6 +350,7 @@ export default function MenuSection() {
                     <button
                       key={item.id}
                       type="button"
+                      aria-pressed={isSelected}
                       onClick={() => selectDal(item.id)}
                       className={`flex items-start justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
                         isSelected
@@ -367,7 +373,7 @@ export default function MenuSection() {
                             : 'border-[#E3E8E3] bg-white text-transparent'
                         }`}
                       >
-                        <Check size={13} strokeWidth={3} />
+                        <Check size={13} strokeWidth={3} aria-hidden="true" />
                       </div>
                     </button>
                   )
@@ -394,6 +400,7 @@ export default function MenuSection() {
                     <button
                       key={item.id}
                       type="button"
+                      aria-pressed={isSelected}
                       onClick={() => selectRice(item.id)}
                       className={`flex items-start justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
                         isSelected
@@ -416,7 +423,7 @@ export default function MenuSection() {
                             : 'border-[#E3E8E3] bg-white text-transparent'
                         }`}
                       >
-                        <Check size={13} strokeWidth={3} />
+                        <Check size={13} strokeWidth={3} aria-hidden="true" />
                       </div>
                     </button>
                   )
@@ -443,6 +450,7 @@ export default function MenuSection() {
                     <button
                       key={item.id}
                       type="button"
+                      aria-pressed={isSelected}
                       onClick={() => selectSweet(item.id)}
                       className={`flex items-start justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
                         isSelected
@@ -465,7 +473,7 @@ export default function MenuSection() {
                             : 'border-[#E3E8E3] bg-white text-transparent'
                         }`}
                       >
-                        <Check size={13} strokeWidth={3} />
+                        <Check size={13} strokeWidth={3} aria-hidden="true" />
                       </div>
                     </button>
                   )
@@ -494,12 +502,12 @@ export default function MenuSection() {
                     <div>
                       <p className="text-base font-bold text-[#262626]">{item.name}</p>
                       <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">{item.gujaratiName}</p>
-                      <span className="inline-block mt-2 text-[10px] font-bold uppercase tracking-wider text-[#287A4A]">
+                      <span className="inline-block mt-2 text-xs font-bold uppercase tracking-wider text-[#287A4A]">
                         Included with every catering order
                       </span>
                     </div>
                     <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#287A4A] text-white">
-                      <Check size={13} strokeWidth={3} />
+                      <Check size={13} strokeWidth={3} aria-hidden="true" />
                     </div>
                   </div>
                 ))}
@@ -529,12 +537,12 @@ export default function MenuSection() {
                 
                 {/* Starters */}
                 <div>
-                  <span className="font-bold text-[#262626] uppercase tracking-wider text-[11px]">Starters:</span>
+                  <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Starters:</span>
                   {selectedStarters.length > 0 ? (
                     <div className="mt-1.5 flex flex-wrap gap-1.5">
                       {selectedStarters.map((st) => (
                         <span key={st.id} className="rounded-md bg-[#EAF4EC] border border-[#D6E8D8] px-2.5 py-1 font-bold text-[#262626]">
-                          {st.name} <span className="font-gujarati text-[10px] text-[#287A4A]">({st.gujaratiName})</span>
+                          {st.name} <span className="font-gujarati text-xs text-[#287A4A]">({st.gujaratiName})</span>
                         </span>
                       ))}
                     </div>
@@ -545,12 +553,12 @@ export default function MenuSection() {
 
                 {/* Complete Dishes */}
                 <div>
-                  <span className="font-bold text-[#262626] uppercase tracking-wider text-[11px]">Complete Dishes:</span>
+                  <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Complete Dishes:</span>
                   {selectedComplete.length > 0 ? (
                     <div className="mt-1.5 flex flex-wrap gap-1.5">
                       {selectedComplete.map((cd) => (
                         <span key={cd.id} className="rounded-md bg-[#EAF4EC] border border-[#D6E8D8] px-2.5 py-1 font-bold text-[#262626]">
-                          {cd.name} <span className="font-gujarati text-[10px] text-[#287A4A]">({cd.gujaratiName})</span>
+                          {cd.name} <span className="font-gujarati text-xs text-[#287A4A]">({cd.gujaratiName})</span>
                           {cd.id === 'pav_bhaji' && state.amulButterPavBhaji && ' + Amul Butter'}
                         </span>
                       ))}
@@ -562,12 +570,12 @@ export default function MenuSection() {
 
                 {/* Shaaks */}
                 <div>
-                  <span className="font-bold text-[#262626] uppercase tracking-wider text-[11px]">Shaak (Max 2):</span>
+                  <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Shaak (Max 2):</span>
                   {selectedShaaks.length > 0 ? (
                     <div className="mt-1.5 flex flex-wrap gap-1.5">
                       {selectedShaaks.map((sh) => (
                         <span key={sh.id} className="rounded-md bg-[#EAF4EC] border border-[#D6E8D8] px-2.5 py-1 font-bold text-[#262626]">
-                          {sh.name} <span className="font-gujarati text-[10px] text-[#287A4A]">({sh.gujaratiName})</span>
+                          {sh.name} <span className="font-gujarati text-xs text-[#287A4A]">({sh.gujaratiName})</span>
                           {sh.id === 'paneer_butter_masala' && state.amulButterPaneerButterMasala && ' + Amul Butter'}
                         </span>
                       ))}
@@ -580,11 +588,11 @@ export default function MenuSection() {
                 {/* Bread, Dal, Rice, Sweet */}
                 <div className="grid grid-cols-2 gap-3 pt-2 border-t border-[#E3E8E3]">
                   <div>
-                    <span className="font-bold text-[#262626] uppercase tracking-wider text-[10px]">Bread:</span>
+                    <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Bread:</span>
                     <p className="text-xs text-[#262626] font-bold mt-0.5">
                       {selectedBread ? (
                         <>
-                          {selectedBread.name} <span className="font-gujarati text-[10px] text-[#287A4A]">({selectedBread.gujaratiName})</span>
+                          {selectedBread.name} <span className="font-gujarati text-xs text-[#287A4A]">({selectedBread.gujaratiName})</span>
                         </>
                       ) : (
                         <span className="text-[#666666]/60 italic">None</span>
@@ -593,11 +601,11 @@ export default function MenuSection() {
                   </div>
 
                   <div>
-                    <span className="font-bold text-[#262626] uppercase tracking-wider text-[10px]">Dal:</span>
+                    <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Dal:</span>
                     <p className="text-xs text-[#262626] font-bold mt-0.5">
                       {selectedDal ? (
                         <>
-                          {selectedDal.name} <span className="font-gujarati text-[10px] text-[#287A4A]">({selectedDal.gujaratiName})</span>
+                          {selectedDal.name} <span className="font-gujarati text-xs text-[#287A4A]">({selectedDal.gujaratiName})</span>
                         </>
                       ) : (
                         <span className="text-[#666666]/60 italic">None</span>
@@ -606,11 +614,11 @@ export default function MenuSection() {
                   </div>
 
                   <div>
-                    <span className="font-bold text-[#262626] uppercase tracking-wider text-[10px]">Rice:</span>
+                    <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Rice:</span>
                     <p className="text-xs text-[#262626] font-bold mt-0.5">
                       {selectedRice ? (
                         <>
-                          {selectedRice.name} <span className="font-gujarati text-[10px] text-[#287A4A]">({selectedRice.gujaratiName})</span>
+                          {selectedRice.name} <span className="font-gujarati text-xs text-[#287A4A]">({selectedRice.gujaratiName})</span>
                         </>
                       ) : (
                         <span className="text-[#666666]/60 italic">None</span>
@@ -619,11 +627,11 @@ export default function MenuSection() {
                   </div>
 
                   <div>
-                    <span className="font-bold text-[#262626] uppercase tracking-wider text-[10px]">Sweet:</span>
+                    <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Sweet:</span>
                     <p className="text-xs text-[#262626] font-bold mt-0.5">
                       {selectedSweet ? (
                         <>
-                          {selectedSweet.name} <span className="font-gujarati text-[10px] text-[#287A4A]">({selectedSweet.gujaratiName})</span>
+                          {selectedSweet.name} <span className="font-gujarati text-xs text-[#287A4A]">({selectedSweet.gujaratiName})</span>
                         </>
                       ) : (
                         <span className="text-[#666666]/60 italic">None</span>
@@ -634,9 +642,9 @@ export default function MenuSection() {
 
                 {/* Complimentary */}
                 <div className="pt-2 border-t border-[#E3E8E3]">
-                  <span className="font-bold text-[#287A4A] uppercase tracking-wider text-[10px]">Complimentary:</span>
+                  <span className="font-bold text-[#287A4A] uppercase tracking-wider text-xs">Complimentary:</span>
                   <p className="text-xs text-[#666666] font-medium mt-0.5">
-                    Papad & Papdi <span className="font-gujarati text-[10px]">({COMPLIMENTARY[0].gujaratiName})</span>, Achaar <span className="font-gujarati text-[10px]">({COMPLIMENTARY[1].gujaratiName})</span>
+                    Papad & Papdi <span className="font-gujarati text-xs">({COMPLIMENTARY[0].gujaratiName})</span>, Achaar <span className="font-gujarati text-xs">({COMPLIMENTARY[1].gujaratiName})</span>
                   </p>
                 </div>
 
@@ -649,7 +657,7 @@ export default function MenuSection() {
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-[#287A4A] py-3.5 px-6 text-center text-xs font-bold uppercase tracking-wider text-white shadow-md hover:bg-[#17613A] transition-all"
                 >
                   <span>Continue to Event Details</span>
-                  <ArrowDown size={14} />
+                  <ArrowDown size={14} aria-hidden="true" />
                 </a>
               </div>
 

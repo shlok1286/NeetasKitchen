@@ -40,15 +40,15 @@ export default function HowItWorksSection() {
         </div>
 
         {/* 4 Steps Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 list-none p-0 m-0">
           {steps.map((st, idx) => (
-            <div key={idx} className="relative flex flex-col text-left space-y-4">
+            <li key={idx} className="relative flex flex-col text-left space-y-4">
               
               <div className="flex items-center justify-between">
                 <span className="font-display text-4xl font-extrabold text-[#287A4A]">
                   {st.num}
                 </span>
-                <div className="h-0.5 flex-1 bg-[#D6E8D8] ml-4 hidden lg:block" />
+                <div className="h-0.5 flex-1 bg-[#D6E8D8] ml-4 hidden lg:block" aria-hidden="true" />
               </div>
 
               <h3 className="font-display text-xl font-bold text-[#262626]">
@@ -59,9 +59,9 @@ export default function HowItWorksSection() {
                 {st.desc}
               </p>
 
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
 
       </div>
     </section>

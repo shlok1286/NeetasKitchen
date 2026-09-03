@@ -75,7 +75,7 @@ export default function ReviewInquirySection() {
         {/* Date Validation Alert if triggered */}
         {dateError && (
           <div className="mb-8 flex items-center gap-3 rounded-2xl border-2 border-[#287A4A] bg-[#EAF4EC] p-4 text-sm font-bold text-[#17613A] animate-bounce text-left">
-            <AlertCircle size={20} className="text-[#287A4A] shrink-0" />
+            <AlertCircle size={20} className="text-[#287A4A] shrink-0" aria-hidden="true" />
             <span>Please select today or a future date in the Event Details section before sending on WhatsApp.</span>
           </div>
         )}
@@ -97,7 +97,7 @@ export default function ReviewInquirySection() {
               href="#menu"
               className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#287A4A] hover:text-[#17613A] transition-colors"
             >
-              <Edit3 size={14} />
+              <Edit3 size={14} aria-hidden="true" />
               <span>Modify Menu</span>
             </a>
           </div>
@@ -300,16 +300,16 @@ export default function ReviewInquirySection() {
               onClick={handleWhatsAppClick}
               className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#287A4A] px-10 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(40,122,74,0.25)] hover:bg-[#17613A] transition-all cursor-pointer"
             >
-              <MessageSquare size={18} />
+              <MessageSquare size={18} aria-hidden="true" />
               <span>Send Inquiry on WhatsApp</span>
             </a>
 
             <div className="flex items-center justify-center gap-2 text-xs text-[#666666]">
-              <AlertCircle size={14} className="text-[#287A4A]" />
+              <AlertCircle size={14} className="text-[#287A4A]" aria-hidden="true" />
               <span>This opens WhatsApp with your pre-filled inquiry. Please press Send in WhatsApp.</span>
             </div>
 
-            <p className="text-[11px] text-[#666666]/70 max-w-md mx-auto">
+            <p className="text-xs text-[#666666]/70 max-w-md mx-auto">
               This is an inquiry to check date availability and obtain a personalized quotation. It is not an automatic booking confirmation.
             </p>
 

@@ -40,7 +40,7 @@ export default function EventDetailsSection() {
         {/* Date Validation Alert */}
         {dateValidationAlert && (
           <div className="mb-8 flex items-center gap-3 rounded-2xl border-2 border-[#287A4A] bg-[#EAF4EC] p-4 text-sm font-bold text-[#17613A] animate-bounce text-left">
-            <AlertCircle size={20} className="text-[#287A4A] shrink-0" />
+            <AlertCircle size={20} className="text-[#287A4A] shrink-0" aria-hidden="true" />
             <span>Please select today or a future date.</span>
           </div>
         )}
@@ -65,6 +65,8 @@ export default function EventDetailsSection() {
                   <input
                     type="text"
                     id="customer-name"
+                    name="name"
+                    autoComplete="name"
                     placeholder="e.g. Ramesh Patel"
                     value={name}
                     onChange={(e) => updateEventDetails({ name: e.target.value })}
@@ -79,6 +81,8 @@ export default function EventDetailsSection() {
                   <input
                     type="tel"
                     id="customer-phone"
+                    name="phone"
+                    autoComplete="tel"
                     placeholder="e.g. 9876543210"
                     value={phone}
                     onChange={(e) => updateEventDetails({ phone: e.target.value })}
@@ -98,14 +102,15 @@ export default function EventDetailsSection() {
               
               {/* Event Type Grid */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-[#666666] mb-2">
+                <span id="event-type-label" className="block text-xs font-semibold uppercase tracking-wider text-[#666666] mb-2">
                   Event Type *
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                </span>
+                <div role="group" aria-labelledby="event-type-label" className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {EVENT_TYPES.map((type) => (
                     <button
                       key={type}
                       type="button"
+                      aria-pressed={eventType === type}
                       onClick={() => updateEventDetails({ eventType: type })}
                       className={`rounded-lg border px-3 py-2 text-xs font-bold transition-all text-left ${
                         eventType === type
@@ -120,8 +125,11 @@ export default function EventDetailsSection() {
 
                 {eventType === 'Other' && (
                   <div className="mt-3">
+                    <label htmlFor="custom-event-type" className="sr-only">Specify custom event type</label>
                     <input
                       type="text"
+                      id="custom-event-type"
+                      name="customEventType"
                       placeholder="Please specify your event type..."
                       value={customEventType}
                       onChange={(e) => updateEventDetails({ customEventType: e.target.value })}
@@ -140,13 +148,14 @@ export default function EventDetailsSection() {
                   <input
                     type="date"
                     id="event-date"
+                    name="date"
                     min={minDate}
                     value={date}
                     onChange={(e) => updateEventDetails({ date: e.target.value })}
                     className="w-full rounded-xl border border-[#E3E8E3] bg-white px-4 py-3 text-sm text-[#262626] focus:border-[#287A4A] focus:outline-none"
                   />
                   {date && !hasValidDate && (
-                    <p className="text-[11px] text-[#287A4A] mt-1 font-bold">
+                    <p className="text-xs text-[#287A4A] mt-1 font-bold">
                       Please select today or a future date.
                     </p>
                   )}
@@ -159,6 +168,7 @@ export default function EventDetailsSection() {
                   <input
                     type="text"
                     id="event-guests"
+                    name="guestCount"
                     placeholder="e.g. 50, 100, 200..."
                     value={guestCount}
                     onChange={(e) => updateEventDetails({ guestCount: e.target.value })}
@@ -183,6 +193,8 @@ export default function EventDetailsSection() {
                 <input
                   type="text"
                   id="event-location"
+                  name="location"
+                  autoComplete="address-level2"
                   placeholder="e.g. Adajan, Vesu, Pal, Katargam, Varachha..."
                   value={location}
                   onChange={(e) => updateEventDetails({ location: e.target.value })}
@@ -192,12 +204,13 @@ export default function EventDetailsSection() {
 
               {/* Service Option */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-[#666666] mb-2">
+                <span id="service-type-label" className="block text-xs font-semibold uppercase tracking-wider text-[#666666] mb-2">
                   Delivery / Self Pickup *
-                </label>
-                <div className="grid gap-3 sm:grid-cols-2">
+                </span>
+                <div role="group" aria-labelledby="service-type-label" className="grid gap-3 sm:grid-cols-2">
                   <button
                     type="button"
+                    aria-pressed={serviceType === 'delivery'}
                     onClick={() => updateEventDetails({ serviceType: 'delivery' })}
                     className={`flex items-start gap-3 rounded-xl border-2 p-4 text-left transition-all ${
                       serviceType === 'delivery'
@@ -205,7 +218,7 @@ export default function EventDetailsSection() {
                         : 'border-[#E3E8E3] bg-white hover:border-[#287A4A]/40'
                     }`}
                   >
-                    <Truck className={`mt-0.5 ${serviceType === 'delivery' ? 'text-[#287A4A]' : 'text-[#666666]'}`} size={18} />
+                    <Truck className={`mt-0.5 ${serviceType === 'delivery' ? 'text-[#287A4A]' : 'text-[#666666]'}`} size={18} aria-hidden="true" />
                     <div>
                       <p className="text-sm font-bold text-[#262626]">Venue Delivery</p>
                       <p className="text-xs text-[#666666]">
@@ -216,6 +229,7 @@ export default function EventDetailsSection() {
 
                   <button
                     type="button"
+                    aria-pressed={serviceType === 'pickup'}
                     onClick={() => updateEventDetails({ serviceType: 'pickup' })}
                     className={`flex items-start gap-3 rounded-xl border-2 p-4 text-left transition-all ${
                       serviceType === 'pickup'
@@ -224,7 +238,7 @@ export default function EventDetailsSection() {
                     }`}
                   >
                     <div className={`mt-0.5 ${serviceType === 'pickup' ? 'text-[#287A4A]' : 'text-[#666666]'}`}>
-                      <Clock size={18} />
+                      <Clock size={18} aria-hidden="true" />
                     </div>
                     <div>
                       <p className="text-sm font-bold text-[#262626]">Self Pickup</p>
@@ -251,6 +265,7 @@ export default function EventDetailsSection() {
                 </label>
                 <textarea
                   id="event-notes"
+                  name="notes"
                   rows={3}
                   placeholder="e.g. Jain food requirements, timings, specific spice preferences..."
                   value={notes}
@@ -267,7 +282,7 @@ export default function EventDetailsSection() {
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-[#287A4A] py-4 px-8 text-center text-xs font-bold uppercase tracking-wider text-white shadow-md hover:bg-[#17613A] transition-all"
               >
                 <span>Review Your Catering Inquiry</span>
-                <ArrowDown size={16} />
+                <ArrowDown size={16} aria-hidden="true" />
               </a>
             </div>
 
@@ -305,7 +320,7 @@ export default function EventDetailsSection() {
               </ul>
 
               <div className="rounded-2xl bg-white p-4 border border-[#E3E8E3] text-xs text-[#262626]">
-                <p className="font-bold text-[#287A4A] mb-1 uppercase tracking-wider text-[11px]">
+                <p className="font-bold text-[#287A4A] mb-1 uppercase tracking-wider text-xs">
                   Pickup Address:
                 </p>
                 <p className="leading-relaxed text-[#666666]">

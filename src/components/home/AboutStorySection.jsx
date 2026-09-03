@@ -44,7 +44,7 @@ export default function AboutStorySection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               {points.map((pt, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 text-sm font-semibold text-[#262626]">
-                  <CheckCircle2 size={18} className="text-[#287A4A] shrink-0" />
+                  <CheckCircle2 size={18} className="text-[#287A4A] shrink-0" aria-hidden="true" />
                   <span>{pt}</span>
                 </div>
               ))}

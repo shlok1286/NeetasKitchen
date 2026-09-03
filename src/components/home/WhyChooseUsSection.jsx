@@ -3,32 +3,32 @@ import { ShieldCheck, Heart, Leaf, SlidersHorizontal, Utensils, Users } from 'lu
 export default function WhyChooseUsSection() {
   const features = [
     {
-      icon: <ShieldCheck size={22} className="text-[#287A4A]" />,
+      icon: <ShieldCheck size={22} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Pure Vegetarian',
       desc: 'Strictly 100% vegetarian preparation maintaining absolute purity, hygiene, and traditional standards.',
     },
     {
-      icon: <Heart size={22} className="text-[#287A4A]" />,
+      icon: <Heart size={22} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Homemade Preparation',
       desc: 'Cooked in fresh small batches with traditional methods, hand-ground spices, and family warmth.',
     },
     {
-      icon: <Leaf size={22} className="text-[#287A4A]" />,
+      icon: <Leaf size={22} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Fresh Ingredients',
       desc: 'Locally sourced vegetables, fresh dairy, and quality grains handpicked daily for your occasion.',
     },
     {
-      icon: <SlidersHorizontal size={22} className="text-[#287A4A]" />,
+      icon: <SlidersHorizontal size={22} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Customized Menus',
       desc: 'Complete freedom to handpick every appetizer, curry, bread, and sweet dish for your event.',
     },
     {
-      icon: <Utensils size={22} className="text-[#287A4A]" />,
+      icon: <Utensils size={22} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Authentic Flavours',
       desc: 'Signature Gujarati and North Indian Punjabi taste profiles seasoned with balanced spices.',
     },
     {
-      icon: <Users size={22} className="text-[#287A4A]" />,
+      icon: <Users size={22} className="text-[#287A4A]" aria-hidden="true" />,
       title: 'Up to 300 Guests',
       desc: 'Focused capacity ensuring attentive logistics, consistent taste, and personal hospitality.',
     },

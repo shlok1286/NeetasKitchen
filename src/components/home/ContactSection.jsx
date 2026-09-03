@@ -26,7 +26,7 @@ export default function ContactSection() {
           <div className="flex flex-col justify-between rounded-2xl border border-[#E3E8E3] bg-[#F7F8F4] p-7 text-left shadow-[0_2px_12px_rgba(40,122,74,0.03)] hover:border-[#287A4A]/50 transition-all h-full">
             <div className="space-y-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF4EC] text-[#287A4A]">
-                <Phone size={20} />
+                <Phone size={20} aria-hidden="true" />
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">Direct Phone</p>
@@ -36,9 +36,10 @@ export default function ContactSection() {
             </div>
             <a
               href={business.callUrl}
+              aria-label={`Call Neeta's Kitchen at ${business.phoneDisplay}`}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#287A4A] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#17613A] transition-all"
             >
-              <Phone size={13} />
+              <Phone size={13} aria-hidden="true" />
               <span>Call Now</span>
             </a>
           </div>
@@ -47,7 +48,7 @@ export default function ContactSection() {
           <div className="flex flex-col justify-between rounded-2xl border border-[#E3E8E3] bg-[#F7F8F4] p-7 text-left shadow-[0_2px_12px_rgba(40,122,74,0.03)] hover:border-[#287A4A]/50 transition-all h-full">
             <div className="space-y-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF4EC] text-[#287A4A]">
-                <MessageSquare size={20} />
+                <MessageSquare size={20} aria-hidden="true" />
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">WhatsApp Chat</p>
@@ -59,9 +60,10 @@ export default function ContactSection() {
               href={business.whatsappBaseUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Chat with Neeta's Kitchen on WhatsApp"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#287A4A] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#17613A] transition-all"
             >
-              <MessageSquare size={13} />
+              <MessageSquare size={13} aria-hidden="true" />
               <span>WhatsApp</span>
             </a>
           </div>
@@ -70,7 +72,7 @@ export default function ContactSection() {
           <div className="flex flex-col justify-between rounded-2xl border border-[#E3E8E3] bg-[#F7F8F4] p-7 text-left shadow-[0_2px_12px_rgba(40,122,74,0.03)] hover:border-[#287A4A]/50 transition-all h-full">
             <div className="space-y-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF4EC] text-[#287A4A]">
-                <Mail size={20} />
+                <Mail size={20} aria-hidden="true" />
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">Email</p>
@@ -80,9 +82,10 @@ export default function ContactSection() {
             </div>
             <a
               href={`mailto:${business.email}`}
+              aria-label={`Email Neeta's Kitchen at ${business.email}`}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#287A4A] bg-white py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-[#287A4A] hover:bg-[#EAF4EC] transition-all"
             >
-              <Mail size={13} />
+              <Mail size={13} aria-hidden="true" />
               <span>Email</span>
             </a>
           </div>
@@ -91,7 +94,7 @@ export default function ContactSection() {
           <div className="flex flex-col justify-between rounded-2xl border border-[#E3E8E3] bg-[#F7F8F4] p-7 text-left shadow-[0_2px_12px_rgba(40,122,74,0.03)] hover:border-[#287A4A]/50 transition-all h-full">
             <div className="space-y-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF4EC] text-[#287A4A]">
-                <MapPin size={20} />
+                <MapPin size={20} aria-hidden="true" />
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">Kitchen Address</p>
@@ -104,9 +107,10 @@ export default function ContactSection() {
               href={business.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Get directions to Neeta's Kitchen on Google Maps"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#287A4A] bg-white py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-[#287A4A] hover:bg-[#EAF4EC] transition-all"
             >
-              <ExternalLink size={13} />
+              <ExternalLink size={13} aria-hidden="true" />
               <span>Get Directions</span>
             </a>
           </div>

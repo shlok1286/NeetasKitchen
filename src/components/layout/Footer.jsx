@@ -9,16 +9,16 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="text-center md:text-left">
-            <h3 className="font-display text-2xl font-bold tracking-tight text-white">
+            <p className="font-display text-2xl font-bold tracking-tight text-white">
               {business.name}
-            </h3>
+            </p>
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#D6E8D8] mt-1">
               {business.tagline}
             </p>
           </div>
 
           {/* Quick Navigation Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-sm font-semibold text-[#EAF4EC]">
+          <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-sm font-semibold text-[#EAF4EC]">
             <a href="#home" className="hover:text-white transition-colors">Home</a>
             <a href="#menu" className="hover:text-white transition-colors">Menu</a>
             <a href="#event-details" className="hover:text-white transition-colors">Event Details</a>

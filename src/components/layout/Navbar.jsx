@@ -29,13 +29,13 @@ export default function Navbar() {
             <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-[#262626] group-hover:text-[#287A4A] transition-colors leading-none">
               {business.name}
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#287A4A] mt-1">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#287A4A] mt-1">
               {business.tagline}
             </span>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -53,7 +53,7 @@ export default function Navbar() {
               href={business.callUrl}
               className="inline-flex items-center gap-2 rounded-full bg-[#287A4A] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm hover:bg-[#17613A] transition-all"
             >
-              <Phone size={13} />
+              <Phone size={13} aria-hidden="true" />
               <span>Call Now</span>
             </a>
 
@@ -63,16 +63,18 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[#E3E8E3] bg-white text-[#262626] hover:border-[#287A4A] focus:outline-none"
               aria-label="Toggle navigation"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
-              {mobileMenuOpen ? <X size={18} /> : <MenuIcon size={18} />}
+              {mobileMenuOpen ? <X size={18} aria-hidden="true" /> : <MenuIcon size={18} aria-hidden="true" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-5 pt-2 border-t border-[#E3E8E3] animate-fade-in">
-            <nav className="flex flex-col gap-2">
+          <div id="mobile-navigation" className="md:hidden pb-5 pt-2 border-t border-[#E3E8E3] animate-fade-in">
+            <nav aria-label="Mobile navigation" className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -89,7 +91,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 rounded-full bg-[#287A4A] py-3 text-center text-xs font-bold uppercase tracking-wider text-white hover:bg-[#17613A]"
                 >
-                  <Phone size={14} />
+                  <Phone size={14} aria-hidden="true" />
                   <span>Call Now ({business.phoneDisplay})</span>
                 </a>
               </div>
