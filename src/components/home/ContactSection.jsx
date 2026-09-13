@@ -3,57 +3,57 @@ import { Phone, MessageSquare, Mail, MapPin, ExternalLink } from 'lucide-react'
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-16 md:py-24 bg-white border-t border-[#E3E8E3]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-12 sm:py-16 bg-[#FBF7F0] border-t border-[#E5D5C8]">
+      <div className="mx-auto max-w-[1220px] px-4.5 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#EAF4EC] px-3.5 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#287A4A]">
-            <span>Get In Touch</span>
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#262626]">
+        <div className="max-w-2xl mb-8 sm:mb-10 text-left">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#8B1328]">
+            Get In Touch
+          </span>
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#332A24] mt-1">
             Contact Neeta's Kitchen
           </h2>
-          <p className="text-base text-[#666666] max-w-xl mx-auto">
-            Have questions regarding menus, event dates, or catering arrangements? Reach out to us directly through any of our channels.
+          <p className="text-sm sm:text-base text-[#332A24]/75 mt-2">
+            Reach out directly for catering inquiries, questions about our menu, or to discuss arrangements for your upcoming event.
           </p>
         </div>
 
-        {/* 4 Equal-Height Contact Channels Grid */}
-        <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
+        {/* 4 Clean Contact Cards */}
+        <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
           
-          {/* 1. Phone / Call */}
-          <div className="flex flex-col justify-between rounded-2xl border border-[#E3E8E3] bg-[#F7F8F4] p-7 text-left shadow-[0_2px_12px_rgba(40,122,74,0.03)] hover:border-[#287A4A]/50 transition-all h-full">
-            <div className="space-y-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF4EC] text-[#287A4A]">
-                <Phone size={20} aria-hidden="true" />
+          {/* 1. Phone (Primary Action) */}
+          <div className="flex flex-col justify-between rounded-2xl border border-[#E5D5C8] bg-[#F6EFE5]/60 p-6 text-left shadow-[0_2px_10px_rgba(100,16,30,0.02)]">
+            <div className="space-y-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F3D9DD] text-[#8B1328]">
+                <Phone size={18} aria-hidden="true" />
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">Direct Phone</p>
-                <p className="text-lg font-bold text-[#262626] mt-1">{business.phone}</p>
-                <p className="text-xs text-[#666666] mt-0.5">Neeta's Kitchen</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#8B1328]">Phone</p>
+                <p className="text-base font-bold text-[#332A24] mt-0.5">{business.phoneDisplay}</p>
+                <p className="text-xs text-[#332A24]/70 mt-0.5">Neeta's Kitchen</p>
               </div>
             </div>
             <a
               href={business.callUrl}
               aria-label={`Call Neeta's Kitchen at ${business.phoneDisplay}`}
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#287A4A] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#17613A] transition-all"
+              className="btn-primary mt-5 flex w-full items-center justify-center gap-2 px-4 text-xs font-semibold uppercase tracking-wider !text-white"
             >
-              <Phone size={13} aria-hidden="true" />
-              <span>Call Now</span>
+              <Phone size={14} aria-hidden="true" className="!text-white !stroke-white" />
+              <span className="!text-white">Call Now</span>
             </a>
           </div>
 
-          {/* 2. WhatsApp */}
-          <div className="flex flex-col justify-between rounded-2xl border border-[#E3E8E3] bg-[#F7F8F4] p-7 text-left shadow-[0_2px_12px_rgba(40,122,74,0.03)] hover:border-[#287A4A]/50 transition-all h-full">
-            <div className="space-y-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF4EC] text-[#287A4A]">
-                <MessageSquare size={20} aria-hidden="true" />
+          {/* 2. WhatsApp (Secondary Action) */}
+          <div className="flex flex-col justify-between rounded-2xl border border-[#E5D5C8] bg-[#F6EFE5]/60 p-6 text-left shadow-[0_2px_10px_rgba(100,16,30,0.02)]">
+            <div className="space-y-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F3D9DD] text-[#8B1328]">
+                <MessageSquare size={18} aria-hidden="true" />
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">WhatsApp Chat</p>
-                <p className="text-lg font-bold text-[#262626] mt-1">Chat on WhatsApp</p>
-                <p className="text-xs text-[#666666] mt-0.5">Quick responses for event inquiries</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#8B1328]">WhatsApp</p>
+                <p className="text-base font-bold text-[#332A24] mt-0.5">Direct Chat</p>
+                <p className="text-xs text-[#332A24]/70 mt-0.5">Quick replies &amp; inquiries</p>
               </div>
             </div>
             <a
@@ -61,45 +61,45 @@ export default function ContactSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat with Neeta's Kitchen on WhatsApp"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#287A4A] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#17613A] transition-all"
+              className="btn-secondary mt-5 flex w-full items-center justify-center gap-2 px-4 text-xs font-semibold uppercase tracking-wider !text-[#8B1328]"
             >
-              <MessageSquare size={13} aria-hidden="true" />
-              <span>WhatsApp</span>
+              <MessageSquare size={14} aria-hidden="true" className="!text-[#8B1328] !stroke-[#8B1328]" />
+              <span className="!text-[#8B1328]">WhatsApp</span>
             </a>
           </div>
 
-          {/* 3. Email */}
-          <div className="flex flex-col justify-between rounded-2xl border border-[#E3E8E3] bg-[#F7F8F4] p-7 text-left shadow-[0_2px_12px_rgba(40,122,74,0.03)] hover:border-[#287A4A]/50 transition-all h-full">
-            <div className="space-y-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF4EC] text-[#287A4A]">
-                <Mail size={20} aria-hidden="true" />
+          {/* 3. Email (Secondary Action) */}
+          <div className="flex flex-col justify-between rounded-2xl border border-[#E5D5C8] bg-[#F6EFE5]/60 p-6 text-left shadow-[0_2px_10px_rgba(100,16,30,0.02)]">
+            <div className="space-y-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F3D9DD] text-[#8B1328]">
+                <Mail size={18} aria-hidden="true" />
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">Email</p>
-                <p className="text-xs font-bold text-[#262626] mt-1.5 break-all">{business.email}</p>
-                <p className="text-xs text-[#666666] mt-0.5">For detailed event requests</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#8B1328]">Email</p>
+                <p className="text-xs font-bold text-[#332A24] mt-1 break-all">{business.email}</p>
+                <p className="text-xs text-[#332A24]/70 mt-0.5">Inquiries &amp; quotes</p>
               </div>
             </div>
             <a
               href={`mailto:${business.email}`}
               aria-label={`Email Neeta's Kitchen at ${business.email}`}
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#287A4A] bg-white py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-[#287A4A] hover:bg-[#EAF4EC] transition-all"
+              className="btn-secondary mt-5 flex w-full items-center justify-center gap-2 px-4 text-xs font-semibold uppercase tracking-wider !text-[#8B1328]"
             >
-              <Mail size={13} aria-hidden="true" />
-              <span>Email</span>
+              <Mail size={14} aria-hidden="true" className="!text-[#8B1328] !stroke-[#8B1328]" />
+              <span className="!text-[#8B1328]">Email</span>
             </a>
           </div>
 
-          {/* 4. Location / Directions */}
-          <div className="flex flex-col justify-between rounded-2xl border border-[#E3E8E3] bg-[#F7F8F4] p-7 text-left shadow-[0_2px_12px_rgba(40,122,74,0.03)] hover:border-[#287A4A]/50 transition-all h-full">
-            <div className="space-y-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF4EC] text-[#287A4A]">
-                <MapPin size={20} aria-hidden="true" />
+          {/* 4. Location / Directions (Secondary Action) */}
+          <div className="flex flex-col justify-between rounded-2xl border border-[#E5D5C8] bg-[#F6EFE5]/60 p-6 text-left shadow-[0_2px_10px_rgba(100,16,30,0.02)]">
+            <div className="space-y-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F3D9DD] text-[#8B1328]">
+                <MapPin size={18} aria-hidden="true" />
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">Kitchen Address</p>
-                <p className="text-xs text-[#262626] font-semibold mt-1 leading-relaxed">
-                  7/966, Kajipura Street, Near Katargam Darwaja, Surat – 395004, Gujarat
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#8B1328]">Kitchen Address</p>
+                <p className="text-xs text-[#332A24] font-semibold mt-1 leading-relaxed">
+                  {business.address}
                 </p>
               </div>
             </div>
@@ -108,10 +108,10 @@ export default function ContactSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Get directions to Neeta's Kitchen on Google Maps"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#287A4A] bg-white py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-[#287A4A] hover:bg-[#EAF4EC] transition-all"
+              className="btn-secondary mt-5 flex w-full items-center justify-center gap-2 px-4 text-xs font-semibold uppercase tracking-wider !text-[#8B1328]"
             >
-              <ExternalLink size={13} aria-hidden="true" />
-              <span>Get Directions</span>
+              <ExternalLink size={14} aria-hidden="true" className="!text-[#8B1328] !stroke-[#8B1328]" />
+              <span className="!text-[#8B1328]">Get Directions</span>
             </a>
           </div>
 

@@ -1,51 +1,27 @@
 import { Helmet } from 'react-helmet-async'
-import HeroSection from '../components/home/HeroSection'
-import HighlightsSection from '../components/home/HighlightsSection'
-import AboutStorySection from '../components/home/AboutStorySection'
-import WhyChooseUsSection from '../components/home/WhyChooseUsSection'
 import MenuSection from '../components/home/MenuSection'
-import HowItWorksSection from '../components/home/HowItWorksSection'
-import EventDetailsSection from '../components/home/EventDetailsSection'
-import ReviewInquirySection from '../components/home/ReviewInquirySection'
+import AboutStorySection from '../components/home/AboutStorySection'
 import ContactSection from '../components/home/ContactSection'
 
 export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Neeta's Kitchen | Homemade Pure Vegetarian Catering in Surat</title>
+        <title>Neeta's Kitchen | Pure Vegetarian Catering</title>
         <meta
           name="description"
-          content="Authentic family-owned homemade pure vegetarian catering service in Surat. Custom menus for weddings, rituals, birthdays, and family functions up to 300 guests."
+          content="Authentic pure vegetarian Gujarati and Punjabi digital menu for Neeta's Kitchen, Surat. Freshly prepared homemade food."
         />
       </Helmet>
 
       <main className="min-h-screen">
-        {/* Section 1: Hero */}
-        <HeroSection />
-
-        {/* Section 2: Highlights Grid */}
-        <HighlightsSection />
-
-        {/* Section 3: About / Brand Story */}
-        <AboutStorySection />
-
-        {/* Section 4: Why Choose Us */}
-        <WhyChooseUsSection />
-
-        {/* Section 5: Interactive Menu */}
+        {/* Section 1: Menu */}
         <MenuSection />
 
-        {/* Section 6: How It Works */}
-        <HowItWorksSection />
+        {/* Section 2: About Us */}
+        <AboutStorySection />
 
-        {/* Section 7: Event Details Form */}
-        <EventDetailsSection />
-
-        {/* Section 8: Inquiry Review */}
-        <ReviewInquirySection />
-
-        {/* Section 9: Contact */}
+        {/* Section 3: Contact Us */}
         <ContactSection />
       </main>
     </>

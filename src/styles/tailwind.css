@@ -4,13 +4,13 @@
   --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-gujarati: 'Noto Sans Gujarati', 'Gujarati Sangam MN', 'Gujarati MT', 'Shruti', 'Nirmala UI', sans-serif;
-  --color-primary-green: #287A4A;
-  --color-primary-green-hover: #1E633B;
-  --color-dark-green: #17613A;
-  --color-soft-green: #EAF4EC;
-  --color-light-green: #F4F8F4;
-  --color-warm-bg: #F7F8F4;
-  --color-text-main: #262626;
-  --color-text-sub: #666666;
-  --color-border: #E3E8E3;
+  
+  --color-cherry: #8B1328;
+  --color-cherry-deep: #64101E;
+  --color-rose-soft: #F3D9DD;
+  --color-cream-warm: #FBF7F0;
+  --color-cream-soft: #F6EFE5;
+  --color-brown-dark: #332A24;
+  --color-gold-muted: #B99A5B;
+  --color-warm-border: #E5D5C8;
 }

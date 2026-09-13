@@ -1,4 +1,5 @@
 export const STARTERS = [
+  { id: 'samosa', name: 'Samosa', gujaratiName: 'સમોસા' },
   { id: 'khaman', name: 'Khaman', gujaratiName: 'ખમણ' },
   { id: 'idra', name: 'Idra', gujaratiName: 'ઈદડા' },
   { id: 'patudi', name: 'Patudi', gujaratiName: 'પાતુડી' },
@@ -20,6 +21,8 @@ export const COMPLETE_DISHES = [
 ]
 
 export const SHAAKS = [
+  { id: 'palak_paneer', name: 'Palak Paneer', gujaratiName: 'પાલક પનીર' },
+  { id: 'shimla_aaloo', name: 'Shimla Aaloo', gujaratiName: 'શિમલા આલૂ' },
   { id: 'ringan_bataka_tameta', name: 'Ringan Bataka Tameta nu Shaak', gujaratiName: 'રીંગણ બટાકા ટામેટાનું શાક' },
   { id: 'mix_veg', name: 'Mix Veg Subzi', gujaratiName: 'મિક્સ વેજ સબ્જી' },
   { id: 'panchkruti', name: 'Panchkruti Shaak', gujaratiName: 'પંચકૃતી શાક' },
@@ -44,6 +47,9 @@ export const DALS = [
 ]
 
 export const RICE = [
+  { id: 'masala_khichdi', name: 'Masala Khichdi', gujaratiName: 'મસાલા ખીચડી' },
+  { id: 'steam_rice', name: 'Steam Rice', gujaratiName: 'સ્ટીમ રાઈસ' },
+  { id: 'jeera_rice', name: 'Jeera Rice', gujaratiName: 'જીરા રાઈસ' },
   { id: 'bhaat', name: 'Bhaat', gujaratiName: 'ભાત' },
 ]
 

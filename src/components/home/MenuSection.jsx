@@ -8,662 +8,137 @@ import {
   SWEETS,
   COMPLIMENTARY,
 } from '../../constants/menuData'
-import { useMenu } from '../../context/MenuContext'
-import { Check, AlertCircle, ArrowDown, Sparkles } from 'lucide-react'
+import { business } from '../../constants/business'
 
 export default function MenuSection() {
-  const {
-    state,
-    shaakLimitAlert,
-    toggleStarter,
-    toggleCompleteDish,
-    toggleShaak,
-    selectBread,
-    selectDal,
-    selectRice,
-    selectSweet,
-    toggleAmulButterPavBhaji,
-    toggleAmulButterPaneerButterMasala,
-    getSelectedStarters,
-    getSelectedCompleteDishes,
-    getSelectedShaaks,
-    getSelectedBread,
-    getSelectedDal,
-    getSelectedRice,
-    getSelectedSweet,
-    totalDishesCount,
-  } = useMenu()
+  const categoriesOrdered = [
+    { id: 'starters', title: 'Starters', items: STARTERS },
+    { id: 'shaaks', title: 'Shaak', items: SHAAKS },
+    { id: 'rice_khichdi', title: 'Rice & Khichdi', items: RICE },
+    { id: 'complete_dishes', title: 'Complete Dishes', items: COMPLETE_DISHES },
+    { id: 'breads', title: 'Breads', items: BREADS },
+    { id: 'dals', title: 'Dal', items: DALS },
+    { id: 'sweets', title: 'Sweets', items: SWEETS },
+    { id: 'complimentary', title: 'Complimentary', items: COMPLIMENTARY },
+  ]
 
-  const selectedStarters = getSelectedStarters()
-  const selectedComplete = getSelectedCompleteDishes()
-  const selectedShaaks = getSelectedShaaks()
-  const selectedBread = getSelectedBread()
-  const selectedDal = getSelectedDal()
-  const selectedRice = getSelectedRice()
-  const selectedSweet = getSelectedSweet()
+  // Desktop 2-column distribution for balanced height
+  const desktopColOne = [
+    categoriesOrdered[0], // Starters (14 items)
+    categoriesOrdered[2], // Rice & Khichdi (4 items)
+    categoriesOrdered[6], // Sweets (2 items)
+    categoriesOrdered[7], // Complimentary (2 items)
+  ]
 
-  const isShaakMaxReached = state.shaaks.length >= 2
+  const desktopColTwo = [
+    categoriesOrdered[1], // Shaak (11 items)
+    categoriesOrdered[3], // Complete Dishes (2 items)
+    categoriesOrdered[4], // Breads (2 items)
+    categoriesOrdered[5], // Dal (4 items)
+  ]
+
+  const renderCategoryBlock = (cat) => (
+    <div key={cat.id} className="space-y-3">
+      {/* Burgundy heading + subtle gold divider */}
+      <div className="flex items-center justify-between pb-1.5 border-b border-[#E5D5C8]">
+        <span className="inline-block rounded-full bg-[#8B1328] px-4 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white">
+          {cat.title}
+        </span>
+        <div className="h-px flex-grow ml-4 bg-gradient-to-r from-[#B99A5B]/60 via-[#B99A5B]/20 to-transparent" />
+      </div>
+
+      {/* Food Items List */}
+      <div className="space-y-2 pt-0.5">
+        {cat.items.map((item) => (
+          <div
+            key={item.id}
+            className="py-1.5 border-b border-[#E5D5C8]/40 last:border-b-0"
+          >
+            <div className="font-sans text-[16px] sm:text-[17px] font-semibold text-[#332A24] leading-snug">
+              {item.name}
+            </div>
+            <div className="font-gujarati text-[13px] sm:text-[14px] font-normal text-[#64101E] opacity-75 mt-0.5">
+              ({item.gujaratiName})
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+
+  const gatheringWhatsappMessage = "Hello Neeta's Kitchen, I am planning a family gathering / event and would like to inquire about your pure vegetarian catering menu."
+  const gatheringWhatsappUrl = `${business.whatsappBaseUrl}?text=${encodeURIComponent(gatheringWhatsappMessage)}`
 
   return (
-    <section id="menu" className="py-16 md:py-20 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="menu" className="py-10 sm:py-14 bg-[#FBF7F0]">
+      <div className="mx-auto max-w-[1220px] px-4.5 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="max-w-3xl text-left space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#EAF4EC] px-3.5 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#287A4A]">
-            <Sparkles size={13} aria-hidden="true" />
-            <span>Interactive Menu Selection</span>
+        {/* Strong Menu Header */}
+        <div className="text-center mb-10 sm:mb-12">
+          {/* Pure Vegetarian Identity */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#B99A5B]/40 bg-[#F6EFE5] px-4 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-[#8B1328] mb-3 shadow-[0_1px_4px_rgba(100,16,30,0.04)]">
+            <span>100% PURE VEGETARIAN · HOMEMADE · SURAT</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#262626]">
-            Build Your Menu
-          </h2>
-          <p className="text-base text-[#666666] leading-relaxed">
-            Choose the dishes you'd like for your celebration.
+
+          <p className="font-display text-base sm:text-lg font-bold tracking-wide text-[#332A24]">
+            Neeta's Kitchen
           </p>
+
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#8B1328] uppercase mt-0.5">
+            Our Menu
+          </h1>
+
+          <p className="font-sans text-sm sm:text-base font-medium text-[#332A24]/85 mt-2">
+            “Pure Vegetarian • Gujarati &amp; Punjabi • Homemade with Care”
+          </p>
+
+          {/* Elegant gold divider */}
+          <div className="flex items-center justify-center gap-3 my-4">
+            <span className="h-px w-12 sm:w-16 bg-[#B99A5B]" />
+            <span className="text-xs text-[#B99A5B]">✦</span>
+            <span className="h-px w-12 sm:w-16 bg-[#B99A5B]" />
+          </div>
         </div>
 
-        {/* Shaak Limit Warning Alert */}
-        {shaakLimitAlert && (
-          <div className="mb-8 flex items-center gap-3 rounded-2xl border-2 border-[#287A4A] bg-[#EAF4EC] p-4 text-sm font-bold text-[#17613A] animate-bounce">
-            <AlertCircle size={20} className="text-[#287A4A] shrink-0" aria-hidden="true" />
-            <span>Maximum 2 Shaak can be selected.</span>
-          </div>
-        )}
-
-        {/* Main Grid: Categories on Left, Selection Summary on Right */}
-        <div className="grid gap-10 lg:grid-cols-[1fr_360px] items-start">
-          
-          {/* Left Column: Menu Categories */}
-          <div className="space-y-14 text-left">
-            
-            {/* 1. STARTERS */}
-            <div className="space-y-4">
-              <div className="border-b border-[#E3E8E3] pb-2 flex items-baseline justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-[#262626]">Starters</h3>
-                  <p className="text-xs text-[#666666]">Select any number of starters</p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                  Multiple Choice
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {STARTERS.map((item) => {
-                  const isSelected = state.starters.includes(item.id)
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={() => toggleStarter(item.id)}
-                      className={`flex flex-col justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
-                        isSelected
-                          ? 'border-[#287A4A] bg-[#EAF4EC] shadow-[0_4px_16px_rgba(40,122,74,0.12)]'
-                          : 'border-[#E3E8E3] bg-[#F7F8F4] hover:border-[#287A4A]/50 hover:bg-white'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-2">
-                        <div>
-                          <p className="text-base font-bold text-[#262626]">
-                            {item.name}
-                          </p>
-                          <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">
-                            {item.gujaratiName}
-                          </p>
-                        </div>
-                        <div
-                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${
-                            isSelected
-                              ? 'border-[#287A4A] bg-[#287A4A] text-white'
-                              : 'border-[#E3E8E3] bg-white text-transparent'
-                          }`}
-                        >
-                          <Check size={13} strokeWidth={3} aria-hidden="true" />
-                        </div>
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
+        {/* Printed Menu Container */}
+        <div className="rounded-2xl sm:rounded-3xl border border-[#E5D5C8] bg-white p-5 sm:p-8 md:p-10 shadow-[0_4px_24px_rgba(100,16,30,0.04)]">
+          {/* Desktop Two-Column Layout */}
+          <div className="hidden md:grid md:grid-cols-2 md:gap-12 lg:gap-16 items-start">
+            <div className="space-y-8 sm:space-y-10">
+              {desktopColOne.map(renderCategoryBlock)}
             </div>
-
-            {/* 2. COMPLETE DISHES */}
-            <div className="space-y-4">
-              <div className="border-b border-[#E3E8E3] pb-2 flex items-baseline justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-[#262626]">Complete Dishes</h3>
-                  <p className="text-xs text-[#666666]">Special festive dishes</p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                  Optional
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {COMPLETE_DISHES.map((item) => {
-                  const isSelected = state.completeDishes.includes(item.id)
-                  return (
-                    <div
-                      key={item.id}
-                      className={`flex flex-col justify-between rounded-xl border-2 p-4 text-left transition-all ${
-                        isSelected
-                          ? 'border-[#287A4A] bg-[#EAF4EC] shadow-[0_4px_16px_rgba(40,122,74,0.12)]'
-                          : 'border-[#E3E8E3] bg-[#F7F8F4] hover:border-[#287A4A]/50'
-                      }`}
-                    >
-                      <button
-                        type="button"
-                        aria-pressed={isSelected}
-                        onClick={() => toggleCompleteDish(item.id)}
-                        className="flex items-start justify-between gap-2 w-full select-none cursor-pointer"
-                      >
-                        <div>
-                          <p className="text-base font-bold text-[#262626]">
-                            {item.name}
-                          </p>
-                          <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">
-                            {item.gujaratiName}
-                          </p>
-                        </div>
-                        <div
-                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${
-                            isSelected
-                              ? 'border-[#287A4A] bg-[#287A4A] text-white'
-                              : 'border-[#E3E8E3] bg-white text-transparent'
-                          }`}
-                        >
-                          <Check size={13} strokeWidth={3} aria-hidden="true" />
-                        </div>
-                      </button>
-
-                      {/* Optional Amul Butter Checkbox for Pav Bhaji */}
-                      {item.id === 'pav_bhaji' && isSelected && (
-                        <div className="mt-3 pt-3 border-t border-[#D6E8D8]">
-                          <label className="flex items-center gap-2.5 cursor-pointer text-xs select-none">
-                            <input
-                              type="checkbox"
-                              checked={state.amulButterPavBhaji}
-                              onChange={toggleAmulButterPavBhaji}
-                              className="h-4 w-4 rounded accent-[#287A4A]"
-                            />
-                            <div>
-                              <span className="font-bold text-[#262626]">Add Amul Butter</span>
-                              <span className="font-gujarati text-[#287A4A] ml-1 font-bold">(અમૂલ બટર)</span>
-                              <p className="text-xs text-[#666666]">Amul Butter is available on request and may have an additional charge.</p>
-                            </div>
-                          </label>
-                        </div>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* 3. SHAAK (MAXIMUM 2) */}
-            <div className="space-y-4">
-              <div className="border-b border-[#E3E8E3] pb-2 flex items-baseline justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-[#262626]">Shaak / Curries</h3>
-                  <p className="text-xs font-semibold text-[#287A4A]">
-                    Select up to 2 Shaak ({state.shaaks.length}/2 selected)
-                  </p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                  Maximum 2
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {SHAAKS.map((item) => {
-                  const isSelected = state.shaaks.includes(item.id)
-                  const isDisabled = isShaakMaxReached && !isSelected
-
-                  return (
-                    <div
-                      key={item.id}
-                      className={`flex flex-col justify-between rounded-xl border-2 p-4 text-left transition-all ${
-                        isSelected
-                          ? 'border-[#287A4A] bg-[#EAF4EC] shadow-[0_4px_16px_rgba(40,122,74,0.12)]'
-                          : isDisabled
-                          ? 'border-[#E3E8E3]/60 bg-gray-50/70 opacity-40 cursor-not-allowed'
-                          : 'border-[#E3E8E3] bg-[#F7F8F4] hover:border-[#287A4A]/50 hover:bg-white'
-                      }`}
-                    >
-                      <button
-                        type="button"
-                        aria-pressed={isSelected}
-                        disabled={isDisabled}
-                        onClick={() => toggleShaak(item.id)}
-                        className="flex items-start justify-between gap-2 w-full select-none cursor-pointer"
-                      >
-                        <div>
-                          <p className="text-base font-bold text-[#262626] leading-snug">
-                            {item.name}
-                          </p>
-                          <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">
-                            {item.gujaratiName}
-                          </p>
-                        </div>
-                        <div
-                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${
-                            isSelected
-                              ? 'border-[#287A4A] bg-[#287A4A] text-white'
-                              : 'border-[#E3E8E3] bg-white text-transparent'
-                          }`}
-                        >
-                          <Check size={13} strokeWidth={3} aria-hidden="true" />
-                        </div>
-                      </button>
-
-                      {/* Optional Amul Butter Checkbox for Paneer Butter Masala */}
-                      {item.id === 'paneer_butter_masala' && isSelected && (
-                        <div className="mt-3 pt-3 border-t border-[#D6E8D8]">
-                          <label className="flex items-center gap-2.5 cursor-pointer text-xs select-none">
-                            <input
-                              type="checkbox"
-                              checked={state.amulButterPaneerButterMasala}
-                              onChange={toggleAmulButterPaneerButterMasala}
-                              className="h-4 w-4 rounded accent-[#287A4A]"
-                            />
-                            <div>
-                              <span className="font-bold text-[#262626]">Add Amul Butter</span>
-                              <span className="font-gujarati text-[#287A4A] ml-1 font-bold">(અમૂલ બટર)</span>
-                              <p className="text-xs text-[#666666]">Amul Butter is available on request and may have an additional charge.</p>
-                            </div>
-                          </label>
-                        </div>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* 4. BREAD (MAXIMUM 1) */}
-            <div className="space-y-4">
-              <div className="border-b border-[#E3E8E3] pb-2 flex items-baseline justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-[#262626]">Bread</h3>
-                  <p className="text-xs text-[#666666]">Select 1 bread option</p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                  Maximum 1
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {BREADS.map((item) => {
-                  const isSelected = state.bread === item.id
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={() => selectBread(item.id)}
-                      className={`flex items-start justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
-                        isSelected
-                          ? 'border-[#287A4A] bg-[#EAF4EC] shadow-[0_4px_16px_rgba(40,122,74,0.12)]'
-                          : 'border-[#E3E8E3] bg-[#F7F8F4] hover:border-[#287A4A]/50 hover:bg-white'
-                      }`}
-                    >
-                      <div>
-                        <p className="text-base font-bold text-[#262626]">
-                          {item.name}
-                        </p>
-                        <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">
-                          {item.gujaratiName}
-                        </p>
-                      </div>
-                      <div
-                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
-                          isSelected
-                            ? 'border-[#287A4A] bg-[#287A4A] text-white'
-                            : 'border-[#E3E8E3] bg-white text-transparent'
-                        }`}
-                      >
-                        <Check size={13} strokeWidth={3} aria-hidden="true" />
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* 5. DAL (MAXIMUM 1) */}
-            <div className="space-y-4">
-              <div className="border-b border-[#E3E8E3] pb-2 flex items-baseline justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-[#262626]">Dal</h3>
-                  <p className="text-xs text-[#666666]">Select 1 traditional dal</p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                  Maximum 1
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {DALS.map((item) => {
-                  const isSelected = state.dal === item.id
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={() => selectDal(item.id)}
-                      className={`flex items-start justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
-                        isSelected
-                          ? 'border-[#287A4A] bg-[#EAF4EC] shadow-[0_4px_16px_rgba(40,122,74,0.12)]'
-                          : 'border-[#E3E8E3] bg-[#F7F8F4] hover:border-[#287A4A]/50 hover:bg-white'
-                      }`}
-                    >
-                      <div>
-                        <p className="text-base font-bold text-[#262626]">
-                          {item.name}
-                        </p>
-                        <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">
-                          {item.gujaratiName}
-                        </p>
-                      </div>
-                      <div
-                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
-                          isSelected
-                            ? 'border-[#287A4A] bg-[#287A4A] text-white'
-                            : 'border-[#E3E8E3] bg-white text-transparent'
-                        }`}
-                      >
-                        <Check size={13} strokeWidth={3} aria-hidden="true" />
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* 6. RICE (MAXIMUM 1) */}
-            <div className="space-y-4">
-              <div className="border-b border-[#E3E8E3] pb-2 flex items-baseline justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-[#262626]">Rice</h3>
-                  <p className="text-xs text-[#666666]">Select rice option</p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                  Maximum 1
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {RICE.map((item) => {
-                  const isSelected = state.rice === item.id
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={() => selectRice(item.id)}
-                      className={`flex items-start justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
-                        isSelected
-                          ? 'border-[#287A4A] bg-[#EAF4EC] shadow-[0_4px_16px_rgba(40,122,74,0.12)]'
-                          : 'border-[#E3E8E3] bg-[#F7F8F4] hover:border-[#287A4A]/50 hover:bg-white'
-                      }`}
-                    >
-                      <div>
-                        <p className="text-base font-bold text-[#262626]">
-                          {item.name}
-                        </p>
-                        <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">
-                          {item.gujaratiName}
-                        </p>
-                      </div>
-                      <div
-                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
-                          isSelected
-                            ? 'border-[#287A4A] bg-[#287A4A] text-white'
-                            : 'border-[#E3E8E3] bg-white text-transparent'
-                        }`}
-                      >
-                        <Check size={13} strokeWidth={3} aria-hidden="true" />
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* 7. SWEET (MAXIMUM 1) */}
-            <div className="space-y-4">
-              <div className="border-b border-[#E3E8E3] pb-2 flex items-baseline justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-[#262626]">Sweet</h3>
-                  <p className="text-xs text-[#666666]">Select traditional sweet</p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                  Maximum 1
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {SWEETS.map((item) => {
-                  const isSelected = state.sweet === item.id
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={() => selectSweet(item.id)}
-                      className={`flex items-start justify-between rounded-xl border-2 p-4 text-left transition-all select-none cursor-pointer ${
-                        isSelected
-                          ? 'border-[#287A4A] bg-[#EAF4EC] shadow-[0_4px_16px_rgba(40,122,74,0.12)]'
-                          : 'border-[#E3E8E3] bg-[#F7F8F4] hover:border-[#287A4A]/50 hover:bg-white'
-                      }`}
-                    >
-                      <div>
-                        <p className="text-base font-bold text-[#262626]">
-                          {item.name}
-                        </p>
-                        <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">
-                          {item.gujaratiName}
-                        </p>
-                      </div>
-                      <div
-                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
-                          isSelected
-                            ? 'border-[#287A4A] bg-[#287A4A] text-white'
-                            : 'border-[#E3E8E3] bg-white text-transparent'
-                        }`}
-                      >
-                        <Check size={13} strokeWidth={3} aria-hidden="true" />
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* 8. COMPLIMENTARY (AUTO-INCLUDED) */}
-            <div className="space-y-4">
-              <div className="border-b border-[#E3E8E3] pb-2 flex items-baseline justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-[#262626]">Complimentary</h3>
-                  <p className="text-xs font-semibold text-[#287A4A]">Included with every catering order</p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                  Auto Included
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {COMPLIMENTARY.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-start justify-between rounded-xl border-2 border-[#D6E8D8] bg-[#EAF4EC]/60 p-4 text-left"
-                  >
-                    <div>
-                      <p className="text-base font-bold text-[#262626]">{item.name}</p>
-                      <p className="font-gujarati text-sm font-semibold text-[#287A4A] mt-0.5">{item.gujaratiName}</p>
-                      <span className="inline-block mt-2 text-xs font-bold uppercase tracking-wider text-[#287A4A]">
-                        Included with every catering order
-                      </span>
-                    </div>
-                    <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#287A4A] text-white">
-                      <Check size={13} strokeWidth={3} aria-hidden="true" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-
-          {/* Right Column: Clean Sticky "Your Selection" Catering Summary */}
-          <div className="lg:sticky lg:top-24">
-            <div className="rounded-2xl border border-[#E3E8E3] bg-white p-6 shadow-[0_12px_36px_rgba(40,122,74,0.06)] text-left space-y-6">
-              
-              <div className="border-b border-[#E3E8E3] pb-4">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#287A4A]">
-                  Catering Summary
-                </p>
-                <h4 className="font-display text-2xl font-bold text-[#262626] mt-1">
-                  Your Selection
-                </h4>
-                <p className="text-xs text-[#666666] mt-0.5">
-                  {totalDishesCount} {totalDishesCount === 1 ? 'custom dish' : 'custom dishes'} selected
-                </p>
-              </div>
-
-              {/* Selection List breakdown */}
-              <div className="space-y-4 text-xs">
-                
-                {/* Starters */}
-                <div>
-                  <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Starters:</span>
-                  {selectedStarters.length > 0 ? (
-                    <div className="mt-1.5 flex flex-wrap gap-1.5">
-                      {selectedStarters.map((st) => (
-                        <span key={st.id} className="rounded-md bg-[#EAF4EC] border border-[#D6E8D8] px-2.5 py-1 font-bold text-[#262626]">
-                          {st.name} <span className="font-gujarati text-xs text-[#287A4A]">({st.gujaratiName})</span>
-                        </span>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-[#666666]/60 italic mt-0.5">None selected</p>
-                  )}
-                </div>
-
-                {/* Complete Dishes */}
-                <div>
-                  <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Complete Dishes:</span>
-                  {selectedComplete.length > 0 ? (
-                    <div className="mt-1.5 flex flex-wrap gap-1.5">
-                      {selectedComplete.map((cd) => (
-                        <span key={cd.id} className="rounded-md bg-[#EAF4EC] border border-[#D6E8D8] px-2.5 py-1 font-bold text-[#262626]">
-                          {cd.name} <span className="font-gujarati text-xs text-[#287A4A]">({cd.gujaratiName})</span>
-                          {cd.id === 'pav_bhaji' && state.amulButterPavBhaji && ' + Amul Butter'}
-                        </span>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-[#666666]/60 italic mt-0.5">None selected</p>
-                  )}
-                </div>
-
-                {/* Shaaks */}
-                <div>
-                  <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Shaak (Max 2):</span>
-                  {selectedShaaks.length > 0 ? (
-                    <div className="mt-1.5 flex flex-wrap gap-1.5">
-                      {selectedShaaks.map((sh) => (
-                        <span key={sh.id} className="rounded-md bg-[#EAF4EC] border border-[#D6E8D8] px-2.5 py-1 font-bold text-[#262626]">
-                          {sh.name} <span className="font-gujarati text-xs text-[#287A4A]">({sh.gujaratiName})</span>
-                          {sh.id === 'paneer_butter_masala' && state.amulButterPaneerButterMasala && ' + Amul Butter'}
-                        </span>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-[#666666]/60 italic mt-0.5">None selected (choose up to 2)</p>
-                  )}
-                </div>
-
-                {/* Bread, Dal, Rice, Sweet */}
-                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-[#E3E8E3]">
-                  <div>
-                    <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Bread:</span>
-                    <p className="text-xs text-[#262626] font-bold mt-0.5">
-                      {selectedBread ? (
-                        <>
-                          {selectedBread.name} <span className="font-gujarati text-xs text-[#287A4A]">({selectedBread.gujaratiName})</span>
-                        </>
-                      ) : (
-                        <span className="text-[#666666]/60 italic">None</span>
-                      )}
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Dal:</span>
-                    <p className="text-xs text-[#262626] font-bold mt-0.5">
-                      {selectedDal ? (
-                        <>
-                          {selectedDal.name} <span className="font-gujarati text-xs text-[#287A4A]">({selectedDal.gujaratiName})</span>
-                        </>
-                      ) : (
-                        <span className="text-[#666666]/60 italic">None</span>
-                      )}
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Rice:</span>
-                    <p className="text-xs text-[#262626] font-bold mt-0.5">
-                      {selectedRice ? (
-                        <>
-                          {selectedRice.name} <span className="font-gujarati text-xs text-[#287A4A]">({selectedRice.gujaratiName})</span>
-                        </>
-                      ) : (
-                        <span className="text-[#666666]/60 italic">None</span>
-                      )}
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="font-bold text-[#262626] uppercase tracking-wider text-xs">Sweet:</span>
-                    <p className="text-xs text-[#262626] font-bold mt-0.5">
-                      {selectedSweet ? (
-                        <>
-                          {selectedSweet.name} <span className="font-gujarati text-xs text-[#287A4A]">({selectedSweet.gujaratiName})</span>
-                        </>
-                      ) : (
-                        <span className="text-[#666666]/60 italic">None</span>
-                      )}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Complimentary */}
-                <div className="pt-2 border-t border-[#E3E8E3]">
-                  <span className="font-bold text-[#287A4A] uppercase tracking-wider text-xs">Complimentary:</span>
-                  <p className="text-xs text-[#666666] font-medium mt-0.5">
-                    Papad & Papdi <span className="font-gujarati text-xs">({COMPLIMENTARY[0].gujaratiName})</span>, Achaar <span className="font-gujarati text-xs">({COMPLIMENTARY[1].gujaratiName})</span>
-                  </p>
-                </div>
-
-              </div>
-
-              {/* Continue CTA */}
-              <div className="pt-2">
-                <a
-                  href="#event-details"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#287A4A] py-3.5 px-6 text-center text-xs font-bold uppercase tracking-wider text-white shadow-md hover:bg-[#17613A] transition-all"
-                >
-                  <span>Continue to Event Details</span>
-                  <ArrowDown size={14} aria-hidden="true" />
-                </a>
-              </div>
-
+            <div className="space-y-8 sm:space-y-10">
+              {desktopColTwo.map(renderCategoryBlock)}
             </div>
           </div>
 
+          {/* Mobile Single-Column Sequential Layout */}
+          <div className="space-y-8 md:hidden">
+            {categoriesOrdered.map(renderCategoryBlock)}
+          </div>
+        </div>
+
+        {/* Celebration CTA */}
+        <div className="mt-10 sm:mt-14 rounded-2xl border border-[#E5D5C8] bg-[#F6EFE5]/70 p-6 sm:p-8 text-center max-w-xl mx-auto shadow-[0_2px_12px_rgba(100,16,30,0.03)]">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8B1328]">
+            Neeta's Kitchen
+          </span>
+          <h3 className="font-display text-xl sm:text-2xl font-extrabold tracking-tight text-[#332A24] mt-1">
+            Planning a family gathering?
+          </h3>
+          <p className="text-sm sm:text-base text-[#332A24]/80 mt-2 max-w-md mx-auto leading-relaxed">
+            From intimate home rituals to celebratory dinners for up to 300 guests, our kitchen prepares fresh, authentic pure vegetarian meals with home-style taste and care.
+          </p>
+          <div className="mt-5">
+            <a
+              href={gatheringWhatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center justify-center gap-2 px-8 text-xs sm:text-sm font-semibold uppercase tracking-wider !text-white"
+            >
+              <span className="!text-white">WHATSAPP US →</span>
+            </a>
+          </div>
         </div>
 
       </div>
