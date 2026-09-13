@@ -3,7 +3,7 @@ import { business } from '../../constants/business'
 export default function Footer() {
   return (
     <footer className="bg-[#F6EFE5] text-[#332A24] py-10 sm:py-12 border-t border-[#E5D5C8]">
-      <div className="mx-auto max-w-[1220px] px-4.5 sm:px-6 lg:px-8">
+      <div className="site-container">
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#E5D5C8]">
           

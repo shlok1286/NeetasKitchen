@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import MenuSection from '../components/home/MenuSection'
+import OccasionsSection from '../components/home/OccasionsSection'
 import AboutStorySection from '../components/home/AboutStorySection'
 import ContactSection from '../components/home/ContactSection'
 
@@ -10,18 +11,21 @@ export default function Home() {
         <title>Neeta's Kitchen | Pure Vegetarian Catering</title>
         <meta
           name="description"
-          content="Authentic pure vegetarian Gujarati and Punjabi digital menu for Neeta's Kitchen, Surat. Freshly prepared homemade food."
+          content="Authentic pure vegetarian Gujarati and Punjabi digital catering menu for Neeta's Kitchen, Surat. Freshly prepared homemade food for up to 300 guests."
         />
       </Helmet>
 
       <main className="min-h-screen">
-        {/* Section 1: Menu */}
+        {/* 1. Menu (First Content) */}
         <MenuSection />
 
-        {/* Section 2: About Us */}
+        {/* 2. Catering For Your Occasion */}
+        <OccasionsSection />
+
+        {/* 3. About Neeta's Kitchen */}
         <AboutStorySection />
 
-        {/* Section 3: Contact Us */}
+        {/* 4. Contact Neeta's Kitchen & Delivery Info */}
         <ContactSection />
       </main>
     </>

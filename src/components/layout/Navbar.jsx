@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#FBF7F0]/95 backdrop-blur-md border-b border-[#E5D5C8]">
-      <div className="mx-auto max-w-[1220px] px-4.5 sm:px-6 lg:px-8">
+      <div className="site-container">
         <div className="flex items-center justify-between h-16 sm:h-20">
           
           {/* Brand Wordmark */}

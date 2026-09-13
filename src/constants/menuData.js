@@ -1,5 +1,4 @@
 export const STARTERS = [
-  { id: 'samosa', name: 'Samosa', gujaratiName: 'સમોસા' },
   { id: 'khaman', name: 'Khaman', gujaratiName: 'ખમણ' },
   { id: 'idra', name: 'Idra', gujaratiName: 'ઈદડા' },
   { id: 'patudi', name: 'Patudi', gujaratiName: 'પાતુડી' },
@@ -13,6 +12,7 @@ export const STARTERS = [
   { id: 'poha_batata', name: 'Poha Batata', gujaratiName: 'પૌવા બટાકા' },
   { id: 'batata_vada', name: 'Batata Vada', gujaratiName: 'બટાકા વડા' },
   { id: 'kera_methi_bhajiya', name: 'Kera Methi na Bhajiya', gujaratiName: 'કેરા મેથીના ભજીયા' },
+  { id: 'samosa', name: 'Samosa', gujaratiName: 'સમોસા' },
 ]
 
 export const COMPLETE_DISHES = [
@@ -21,8 +21,6 @@ export const COMPLETE_DISHES = [
 ]
 
 export const SHAAKS = [
-  { id: 'palak_paneer', name: 'Palak Paneer', gujaratiName: 'પાલક પનીર' },
-  { id: 'shimla_aaloo', name: 'Shimla Aaloo', gujaratiName: 'શિમલા આલૂ' },
   { id: 'ringan_bataka_tameta', name: 'Ringan Bataka Tameta nu Shaak', gujaratiName: 'રીંગણ બટાકા ટામેટાનું શાક' },
   { id: 'mix_veg', name: 'Mix Veg Subzi', gujaratiName: 'મિક્સ વેજ સબ્જી' },
   { id: 'panchkruti', name: 'Panchkruti Shaak', gujaratiName: 'પંચકૃતી શાક' },
@@ -32,6 +30,8 @@ export const SHAAKS = [
   { id: 'sukki_aloo', name: 'Sukki Aloo ni Sabzi', gujaratiName: 'સૂકી આલૂની સબ્જી' },
   { id: 'paneer_tikka_masala', name: 'Paneer Tikka Masala', gujaratiName: 'પનીર ટિક્કા મસાલા' },
   { id: 'bhagat_muthiya', name: 'Bhagat Muthiya ni Sabji', gujaratiName: 'ભગત મુઠિયાની સબ્જી' },
+  { id: 'palak_paneer', name: 'Palak Paneer', gujaratiName: 'પાલક પનીર' },
+  { id: 'shimla_aaloo', name: 'Shimla Aaloo', gujaratiName: 'શિમલા આલૂ' },
 ]
 
 export const BREADS = [
@@ -47,10 +47,10 @@ export const DALS = [
 ]
 
 export const RICE = [
+  { id: 'bhaat', name: 'Bhaat', gujaratiName: 'ભાત' },
   { id: 'masala_khichdi', name: 'Masala Khichdi', gujaratiName: 'મસાલા ખીચડી' },
   { id: 'steam_rice', name: 'Steam Rice', gujaratiName: 'સ્ટીમ રાઈસ' },
   { id: 'jeera_rice', name: 'Jeera Rice', gujaratiName: 'જીરા રાઈસ' },
-  { id: 'bhaat', name: 'Bhaat', gujaratiName: 'ભાત' },
 ]
 
 export const SWEETS = [
