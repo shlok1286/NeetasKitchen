@@ -1,16 +1,94 @@
-# React + Vite
+# Neeta's Kitchen
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern digital menu website for **Neeta's Kitchen**, a family-owned pure vegetarian catering kitchen based in Surat, Gujarat.
 
-Currently, two official plugins are available:
+The website is designed to give customers a simple way to explore the menu, learn about the kitchen, and get in touch directly through phone, WhatsApp, email, or directions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+Neeta's Kitchen focuses on homemade Gujarati and Punjabi vegetarian food prepared for family functions, celebrations, religious ceremonies, weddings, engagements, and community events.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This website was designed with one goal:
 
-## Expanding the Oxlint configuration
+> Make it easy for customers to see the food menu and contact the kitchen.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The experience is intentionally simple:
+
+**Menu → About Us → Contact Us**
+
+## Features
+
+- Clean digital restaurant menu
+- Gujarati names displayed below English dish names
+- Organized food categories
+- Responsive design for mobile, tablet, and desktop
+- Direct Call Now functionality
+- WhatsApp inquiry access
+- Email contact
+- Kitchen location and directions
+- About Neeta's Kitchen section
+- Premium warm restaurant-inspired visual design
+- Mobile-friendly navigation
+
+## Menu
+
+The menu preserves the actual dishes offered by Neeta's Kitchen and organizes them into clear categories.
+
+Current menu includes items such as:
+
+### Starters
+- Samosa
+
+### Shaak
+- Palak Paneer
+- Shimla Aaloo
+- Ringan Bataka Tameta nu Shaak
+- Existing menu selections
+
+### Rice & Khichdi
+- Masala Khichdi
+- Steam Rice
+- Jeera Rice
+
+Additional existing menu categories and dishes are preserved within the website.
+
+## Design
+
+The website uses a warm, premium food-focused visual identity.
+
+### Color Palette
+
+| Color | Hex |
+|---|---|
+| Cherry / Burgundy | `#8B1328` |
+| Deep Burgundy | `#64101E` |
+| Soft Rose | `#F3D9DD` |
+| Warm Cream | `#FBF7F0` |
+| Soft Cream | `#F6EFE5` |
+| Dark Warm Brown | `#332A24` |
+| Muted Gold | `#B99A5B` |
+| White | `#FFFFFF` |
+| Warm Border | `#E5D5C8` |
+
+The design avoids overly bright colors and focuses on a warm, elegant restaurant aesthetic.
+
+## Website Structure
+
+```text
+Neeta's Kitchen
+│
+├── Menu
+│   ├── Starters
+│   ├── Shaak
+│   ├── Rice & Khichdi
+│   └── Other Menu Categories
+│
+├── About Us
+│
+├── Contact Us
+│   ├── Phone
+│   ├── WhatsApp
+│   ├── Email
+│   └── Directions
+│
+└── Footer
