@@ -1,46 +1,38 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Menu as MenuIcon, X, Phone } from 'lucide-react'
 import { business } from '../../constants/business'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 15)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const navLinks = [
-    { label: 'Home', href: '#home' },
     { label: 'Menu', href: '#menu' },
-    { label: 'Event Details', href: '#event-details' },
+    { label: 'About Us', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ]
 
   return (
-    <header className="sticky top-0 z-50 transition-all duration-200 bg-white/95 backdrop-blur-md border-b border-[#E3E8E3]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 bg-[#FBF7F0]/95 backdrop-blur-md border-b border-[#E5D5C8]">
+      <div className="mx-auto max-w-[1220px] px-4.5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           
-          {/* Brand Wordmark (No icon/NK logo) */}
-          <a href="#home" className="flex flex-col text-left group">
-            <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-[#262626] group-hover:text-[#287A4A] transition-colors leading-none">
+          {/* Brand Wordmark */}
+          <a href="#menu" className="flex flex-col text-left group">
+            <span className="font-display text-xl sm:text-2xl font-extrabold tracking-tight text-[#8B1328] group-hover:text-[#64101E] transition-colors leading-none">
               {business.name}
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#287A4A] mt-1">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-[#B99A5B] mt-1">
               {business.tagline}
             </span>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-semibold text-[#666666] hover:text-[#287A4A] transition-colors"
+                className="text-sm font-semibold tracking-wide text-[#332A24] hover:text-[#8B1328] transition-colors"
               >
                 {link.label}
               </a>
@@ -51,46 +43,48 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href={business.callUrl}
-              className="inline-flex items-center gap-2 rounded-full bg-[#287A4A] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm hover:bg-[#17613A] transition-all"
+              className="btn-primary inline-flex items-center gap-2 px-5 text-xs font-semibold uppercase tracking-wider !text-white !h-10"
             >
-              <Phone size={13} />
-              <span>Call Now</span>
+              <Phone size={13} aria-hidden="true" className="!text-white !stroke-white" />
+              <span className="!text-white">Call Now</span>
             </a>
 
             {/* Mobile Hamburger Button */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[#E3E8E3] bg-white text-[#262626] hover:border-[#287A4A] focus:outline-none"
+              className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#E5D5C8] bg-[#F6EFE5] text-[#332A24] hover:border-[#8B1328] hover:text-[#8B1328] focus:outline-none transition-colors"
               aria-label="Toggle navigation"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
-              {mobileMenuOpen ? <X size={18} /> : <MenuIcon size={18} />}
+              {mobileMenuOpen ? <X size={18} aria-hidden="true" /> : <MenuIcon size={18} aria-hidden="true" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-5 pt-2 border-t border-[#E3E8E3] animate-fade-in">
-            <nav className="flex flex-col gap-2">
+          <div id="mobile-navigation" className="md:hidden pb-4 pt-2 border-t border-[#E5D5C8]">
+            <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-xl px-4 py-2.5 text-base font-semibold text-[#262626] hover:bg-[#EAF4EC] hover:text-[#287A4A] transition-colors text-left"
+                  className="rounded-xl px-4 py-2.5 text-base font-semibold text-[#332A24] hover:bg-[#F6EFE5] hover:text-[#8B1328] transition-colors text-left"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="mt-2 pt-2 border-t border-[#E3E8E3]">
+              <div className="mt-2 pt-2 border-t border-[#E5D5C8]">
                 <a
                   href={business.callUrl}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-full bg-[#287A4A] py-3 text-center text-xs font-bold uppercase tracking-wider text-white hover:bg-[#17613A]"
+                  className="btn-primary flex items-center justify-center gap-2 w-full text-xs font-semibold uppercase tracking-wider !text-white !h-11"
                 >
-                  <Phone size={14} />
-                  <span>Call Now ({business.phoneDisplay})</span>
+                  <Phone size={14} aria-hidden="true" className="!text-white !stroke-white" />
+                  <span className="!text-white">Call Now ({business.phoneDisplay})</span>
                 </a>
               </div>
             </nav>

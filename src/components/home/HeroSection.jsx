@@ -48,14 +48,14 @@ export default function HeroSection() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#287A4A] px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_6px_20px_rgba(40,122,74,0.25)] hover:bg-[#17613A] transition-all"
               >
                 <span>Select Your Menu</span>
-                <ArrowDown size={16} />
+                <ArrowDown size={16} aria-hidden="true" />
               </a>
 
               <a
                 href={business.callUrl}
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#287A4A] bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-[#287A4A] hover:bg-[#EAF4EC] transition-all"
               >
-                <Phone size={16} />
+                <Phone size={16} aria-hidden="true" />
                 <span>Call Now</span>
               </a>
             </div>
@@ -76,6 +76,11 @@ export default function HeroSection() {
               <img
                 src={thaliImage}
                 alt="Neeta's Kitchen pure vegetarian catering thali"
+                width="800"
+                height="533"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
                 style={{
                   width: '100%',
                   height: '100%',
