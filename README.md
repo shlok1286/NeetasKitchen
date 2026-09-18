@@ -1,6 +1,10 @@
 # Neeta's Kitchen
 
-# Live Demo : [neetaskitchen.vercel.app](neetaskitchen.vercel.app)
+## 🌐 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Neeta's%20Kitchen-8B0000?style=for-the-badge&logo=vercel&logoColor=white)](https://neetaskitchen.vercel.app/)
+
+**Visit:** https://neetaskitchen.vercel.app/
 A modern digital menu website for **Neeta's Kitchen**, a family-owned pure vegetarian catering kitchen based in Surat, Gujarat.
 
 The website is designed to give customers a simple way to explore the menu, learn about the kitchen, and get in touch directly through phone, WhatsApp, email, or directions.
